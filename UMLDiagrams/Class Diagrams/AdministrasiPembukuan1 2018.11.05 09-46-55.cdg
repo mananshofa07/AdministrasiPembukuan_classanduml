@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="AdministrasiPembukuan1">
+  <ClassDiagramComponents>
+    <Class name="Guru" package="Guru" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="nik" type="int" visibility="package"/>
+        <Field name="nm_guru" type="String" visibility="package"/>
+        <Field name="tempatlahir" type="String" visibility="package"/>
+        <Field name="tgllahir" type="Date" visibility="package"/>
+        <Field name="jk" type="char" visibility="package"/>
+        <Field name="Pendidikanterakhir" type="String" visibility="package"/>
+        <Field name="thlulus" type="String" visibility="package"/>
+        <Field name="alamat" type="String" visibility="package"/>
+        <Field name="pass" type="String" visibility="package"/>
+        <Field name="no_hp" type="String" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="AbsensiGuru" package="Master" visibility="public" xPosition="230.0" yPosition="20.0">
+      <Fields>
+        <Field name="id_absen" type="int" visibility="package"/>
+        <Field name="nm_guru" type="String" visibility="package"/>
+        <Field name="jamber" type="String" visibility="package"/>
+        <Field name="status" type="String" visibility="package"/>
+        <Field name="Keterangan" type="String" visibility="package"/>
+        <Field name="tgl" type="Date" visibility="package"/>
+        <Field name="Guru" type="Guru" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="AbsensiMurid" package="Master" visibility="public" xPosition="420.0" yPosition="20.0">
+      <Fields>
+        <Field name="id_absen" type="int" visibility="package"/>
+        <Field name="nm_murid" type="String" visibility="package"/>
+        <Field name="status" type="String" visibility="package"/>
+        <Field name="tgl" type="Date" visibility="package"/>
+        <Field name="Kelas" type="Kelas" visibility="package"/>
+        <Field name="Murid" type="Murid" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Jadwal" package="Master" visibility="public" xPosition="637.0" yPosition="280.0">
+      <Fields>
+        <Field name="id_mapel" type="int" visibility="package"/>
+        <Field name="nm_mapel" type="String" visibility="package"/>
+        <Field name="hari" type="String" visibility="package"/>
+        <Field name="jam" type="String" visibility="package"/>
+        <Field name="Ruang" type="String" visibility="package"/>
+        <Field name="Kelas" type="Kelas" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Kelas" package="Master" visibility="public" xPosition="637.0" yPosition="35.0">
+      <Fields>
+        <Field name="id_kelas" type="int" visibility="package"/>
+        <Field name="kelas" type="String" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Kurikulum" package="Master" visibility="public" xPosition="230.0" yPosition="293.0">
+      <Fields>
+        <Field name="id_kurikulum" type="int" visibility="package"/>
+        <Field name="nm_kurikulum" type="String" visibility="package"/>
+        <Field name="isi_kur" type="String" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Murid" package="Master" visibility="public" xPosition="457.0" yPosition="327.0">
+      <Fields>
+        <Field name="id_murid" type="int" visibility="package"/>
+        <Field name="nm_murid" type="String" visibility="package"/>
+        <Field name="Kelas" type="Kelas" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Sarpras" package="Master" visibility="public" xPosition="838.0" yPosition="69.0">
+      <Fields>
+        <Field name="id_sarpras" type="int" visibility="package"/>
+        <Field name="nm_sarpras" type="String" visibility="package"/>
+        <Field name="jenis_sarpras" type="String" visibility="package"/>
+        <Field name="baik" type="int" visibility="package"/>
+        <Field name="rusakringan" type="int" visibility="package"/>
+        <Field name="rusakberat" type="int" visibility="package"/>
+        <Field name="jumlah" type="int" visibility="package"/>
+        <Field name="tgl" type="Date" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Operator" package="Operator" visibility="public" xPosition="27.0" yPosition="327.0">
+      <Fields>
+        <Field name="id_operator" type="int" visibility="package"/>
+        <Field name="username" type="String" visibility="package"/>
+        <Field name="nm_operator" type="String" visibility="package"/>
+        <Field name="pass" type="String" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Kelas" source="Master.AbsensiMurid" target="Master.Kelas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Kelas" source="Master.Murid" target="Master.Kelas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Kelas" source="Master.Jadwal" target="Master.Kelas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Murid" source="Master.AbsensiMurid" target="Master.Murid" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Guru" source="Master.AbsensiGuru" target="Guru.Guru" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
